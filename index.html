@@ -22,6 +22,8 @@
   header h1{font-family:Oswald,sans-serif;font-weight:700;font-size:clamp(44px,9vw,68px);margin:0;line-height:1}
   header h1 span{color:var(--c);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill}
   header p{margin:10px 0 0;color:var(--muted);max-width:640px}
+  header .credit{font-size:15px;margin-top:8px}
+  header .credit a{color:inherit;font-weight:700}
   .layout{display:grid;gap:24px}
   @media(min-width:960px){.layout{grid-template-columns:minmax(0,1fr) 430px}.side{position:sticky;top:20px;align-self:start}}
   .panel{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:20px;margin-bottom:20px}
@@ -91,6 +93,7 @@
   <header>
     <h1>Fill your <span>jars</span></h1>
     <p>Pick a color, rate each one from 1 (a little) to 5 (overflowing), then save your picture. Not your thing? Skip it and the jar stays empty.</p>
+    <p class="credit">Source available at <a href="https://lockedtony.github.io/kink-jars/">LockedTony's Kink Jars</a>.</p>
   </header>
 
   <div class="layout">
@@ -382,6 +385,10 @@ function drawPoster(canvas, scale) {
     c.fillStyle = INK; c.textAlign = "center";
     label.forEach((l, k) => c.fillText(l, cx, top + 170 + 44 + k * (size + 4)));
   });
+
+  c.font = "500 20px Oswald, 'Arial Narrow', sans-serif";
+  c.fillStyle = "#555";
+  c.fillText("Created by LockedTony's Kink Jars · lockedtony.github.io/kink-jars", PW / 2, PH - 34);
 }
 
 function drawMini(canvas, idx, level, rgb) {
